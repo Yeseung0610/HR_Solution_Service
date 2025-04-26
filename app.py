@@ -1,11 +1,12 @@
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 from datetime import datetime
-from pages.1_evaluation import show as show_evaluation
-from pages.2_analysis import show as show_analysis 
-from pages.3_dashboard import show as show_dashboard
+from pages import (
+    evaluation as page_evaluation,
+    analysis as page_analysis,
+    dashboard as page_dashboard
+)
 
 # Page configuration
 st.set_page_config(page_title="HR 평가자 분석 시스템", layout="wide")
@@ -28,8 +29,8 @@ st.sidebar.title("HR 평가 지원 시스템")
 page = st.sidebar.radio("메뉴", ["모의 평가", "평가자 분석", "관리자 대시보드"])
 
 if page == "모의 평가":
-    show_evaluation()
+    page_evaluation.show()
 elif page == "평가자 분석":
-    show_analysis()
+    page_analysis.show()
 else:
-    show_dashboard()
+    page_dashboard.show()
