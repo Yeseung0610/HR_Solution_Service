@@ -1,7 +1,7 @@
 
 import streamlit as st
 import plotly.express as px
-from utils.analysis import analyze_evaluator
+from app import analyze_evaluator
 
 def show():
     st.title("평가자 분석")
